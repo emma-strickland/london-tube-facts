@@ -1,16 +1,22 @@
 import React from 'react'
 import { GoogleMap, LoadScript, TransitLayer } from '@react-google-maps/api';
+import mapStyles from './mapStyles';
 
 // require('dotenv').config(); // Do I need this?
 const containerStyle = {
-  width: '100%',
-  height: '650px'
+  width: '100vw',
+  height: '100vh',
+  fontFamily: 'Arial',
 };
 
 const center = {
   lat: 51.50811919273866,
   lng: -0.12754601332062465
 };
+
+// const styleOptions = {
+//   styles: mapStyles
+// }
 
 function LondonMap() {
   return (
@@ -21,8 +27,8 @@ function LondonMap() {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={11}
-
-      // mapStyle={mapStyle}
+        options={{ streetViewControl: false }} // this overwrites the subway colors 
+      // preventGoogleFontsLoading={false}
       >
         <TransitLayer />
         { /* Child components, such as markers, info windows, etc. */}
