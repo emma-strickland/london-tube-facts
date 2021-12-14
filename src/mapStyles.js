@@ -53,16 +53,18 @@ const styles = [
     elementType: "labels.text.fill",
     stylers: [{ color: "#f3d19c" }],
   },
-  {
-    featureType: "transit",
-    elementType: "geometry",
-    stylers: [{ color: "#2f3948" }],
-  },
-  {
-    featureType: "transit.station",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#d59563" }],
-  },
+  // {
+  //   featureType: "transit",
+  //   elementType: "all",
+  //   // stylers: [
+  //   //   { visibility: "off" }
+  //   // ]
+  // },
+  // {
+  //   featureType: "transit.station",
+  //   elementType: "labels.text.fill",
+  //   stylers: [{ color: "#d59563" }],
+  // },
   {
     featureType: "water",
     elementType: "geometry",

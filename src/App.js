@@ -1,6 +1,7 @@
 import React from 'react'
-import { GoogleMap, LoadScript, TransitLayer } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, TransitLayer, OverlayView, Marker } from '@react-google-maps/api';
 import mapStyles from './mapStyles';
+import museumCoordinates from './museumCoordinates';
 
 // require('dotenv').config(); // Do I need this?
 const containerStyle = {
@@ -14,9 +15,16 @@ const center = {
   lng: -0.12754601332062465
 };
 
-// const styleOptions = {
-//   styles: mapStyles
-// }
+const onLoad = markerLoad => {
+  console.log('marker: ', markerLoad)
+}
+// this overwrites the subway colors 
+const options = {
+  // styles: mapStyles,
+  streetViewControl: false,
+  disableDefaultUI: true,
+  zoomControl: true,
+}
 
 function LondonMap() {
   return (
@@ -27,11 +35,15 @@ function LondonMap() {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={11}
-        options={{ streetViewControl: false }} // this overwrites the subway colors 
+        options={options}
       // preventGoogleFontsLoading={false}
       >
-        <TransitLayer />
-        { /* Child components, such as markers, info windows, etc. */}
+        {museumCoordinates.map((coordinate) => (
+          <Marker
+            key={coordinate.name}
+            position={{ lat: coordinate.lat, lng: coordinate.lng }}
+          />
+        ))}
         <></>
       </GoogleMap>
     </LoadScript>
@@ -39,21 +51,5 @@ function LondonMap() {
 }
 
 export default React.memo(LondonMap)
-
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Welcome to London Tube Map.
-//         </p>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
 
 
