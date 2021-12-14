@@ -10,8 +10,13 @@ const styles = [
   },
   {
     featureType: "poi",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#d59563" }],
+    elementType: "labels", // "labels.text.fill" -- removes landmark markers
+    // stylers: [{ color: "#d59563" }],
+    stylers: [
+      {
+        "visibility": "off"
+      }
+    ]
   },
   {
     featureType: "poi.park",

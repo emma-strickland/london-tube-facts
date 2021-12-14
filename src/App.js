@@ -16,7 +16,7 @@ const center = {
 
 
 const options = {
-  // styles: mapStyles, // this overwrites the subway colors 
+  styles: mapStyles, // this overwrites the subway colors 
   streetViewControl: false,
   disableDefaultUI: true,
   zoomControl: true,
@@ -40,6 +40,7 @@ function LondonMap() {
         {museumCoordinates.map((coordinate) => (
           <Marker
             key={coordinate.name}
+            animation={{ Animation: 'BOUNCE' }}
             position={{ lat: coordinate.lat, lng: coordinate.lng }}
             onClick={() => setSelected(coordinate)}
           />
