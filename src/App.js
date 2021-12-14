@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { GoogleMap, LoadScript, TransitLayer, OverlayView, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, TransitLayer, OverlayView, Marker, InfoWindow } from '@react-google-maps/api';
 import mapStyles from './mapStyles';
 import museumCoordinates from './museumCoordinates';
 
@@ -44,6 +44,15 @@ function LondonMap() {
             onClick={() => setSelected(coordinate)}
           />
         ))}
+        {selected ? (<InfoWindow
+          position={{ lat: selected.lat, lng: selected.lng }}
+          onCloseClick={() => setSelected(null)}>
+          <div>
+            <h1>{selected.name}</h1>
+            <p>This is the museum you selected</p>
+          </div>
+        </InfoWindow>) :
+          null}
         <></>
       </GoogleMap>
     </LoadScript>
