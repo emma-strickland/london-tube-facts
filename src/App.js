@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { GoogleMap, LoadScript, TransitLayer, OverlayView, Marker, InfoWindow } from '@react-google-maps/api';
 import mapStyles from './mapStyles';
 import museumCoordinates from './museumCoordinates';
+import Button from './components/Button';
+import Header from './components/Header';
 
 // require('dotenv').config(); // Do I need this?
 const containerStyle = {
@@ -13,7 +15,6 @@ const center = {
   lat: 51.50811919273866,
   lng: -0.12754601332062465
 };
-
 
 const options = {
   styles: mapStyles, // this overwrites the subway colors 
@@ -30,6 +31,8 @@ function LondonMap() {
     <LoadScript
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
     >
+      <Header />
+      {/* <Button /> */}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -55,6 +58,7 @@ function LondonMap() {
         </InfoWindow>) :
           null}
         <></>
+
       </GoogleMap>
     </LoadScript>
   )

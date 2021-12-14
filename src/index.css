@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.button {
+  background-color:lavender;
+  padding: 24px;
+  /* margin: 100; */
+  border-radius: 16px;
+}
+
+.header {
+  background-color: #1b2a41;
+  padding: 20px;
+  display: flex;
+  position: bottom;
+  flex-direction: row;
+  align-items: center;
+  color: #ccc9dc;
+}
